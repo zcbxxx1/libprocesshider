@@ -5,6 +5,9 @@ libprocesshider
 
 完整教程请访问 https://sysdigcloud.com/hiding-linux-processes-for-fun-and-profit/
 
+在`processhider.c`中修改进程名称
+![PixPin_2025-06-20_16-28-51](https://github.com/user-attachments/assets/049f97cf-f631-4842-a927-7f5d4a98daa2)
+
 简而言之，编译so文件：
 
 ```
