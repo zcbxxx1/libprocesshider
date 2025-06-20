@@ -1,7 +1,13 @@
-all: libprocesshider.so
+# --- Makefile ------------------------
+LIB ?= libprocesshider.so       # 默认名，可用命令行覆盖
 
-libprocesshider.so: processhider.c
-	gcc -Wall -fPIC -shared -o libprocesshider.so processhider.c -ldl
+all: $(LIB)
 
-.PHONY clean:
-	rm -f libprocesshider.so
+$(LIB): processhider.c
+	$(CC) -Wall -fPIC -shared \
+	      -Wl,-soname,$(LIB) \   # <- 同步修改 SONAME
+	      -o $@ $< -ldl
+
+.PHONY: clean
+clean:
+	rm -f $(LIB)
